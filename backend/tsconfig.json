@@ -4,12 +4,17 @@
          "es5",
          "es6"
       ],
+      "allowJs": true,
       "target": "es5",
       "module": "commonjs",
       "moduleResolution": "node",
       "outDir": "./build",
       "emitDecoratorMetadata": true,
+      "forceConsistentCasingInFileNames": true,
       "experimentalDecorators": true,
-      "sourceMap": true
+      "sourceMap": true,
+      "esModuleInterop": true,
+      "rootDir": "./src",
+      "strict": true
    }
 }
