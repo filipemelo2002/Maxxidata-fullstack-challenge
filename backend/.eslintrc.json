@@ -1,7 +1,8 @@
 {
     "env": {
         "es2021": true,
-        "node": true
+        "node": true,
+        "jest": true
     },
     "extends": [
         "standard",
@@ -28,7 +29,8 @@
       }],
       "@typescript-eslint/no-unused-vars": ["error", {
         "argsIgnorePattern": "_"
-      }]
+      }],
+      "@typescript-eslint/no-var-requires": "off"
     },
     "settings": {
       "import/resolver":{
