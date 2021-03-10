@@ -11,6 +11,7 @@
       "outDir": "./build",
       "emitDecoratorMetadata": true,
       "forceConsistentCasingInFileNames": true,
+      "strictPropertyInitialization": false,
       "experimentalDecorators": true,
       "sourceMap": true,
       "esModuleInterop": true,
