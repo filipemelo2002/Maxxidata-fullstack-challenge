@@ -31,6 +31,18 @@ professionalRouter.get('/', async (request, response) => {
   return response.json(professionals);
 });
 
+professionalRouter.get('/:id', async (request, response) => {
+  const { id } = request.params;
+  const professionalRepository = getRepository(Professional);
+  const professional = await await professionalRepository.findOne({
+    where: { id },
+  });
+  if (!professional) {
+    throw new AppError('Not found such Professional');
+  }
+  return response.json(professional);
+});
+
 professionalRouter.put('/:id', async (request, response) => {
   const { id } = request.params;
   const { nome, telefone, email, tipoDeProfissional, situacao } = request.body;
