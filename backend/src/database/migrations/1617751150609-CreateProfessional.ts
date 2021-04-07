@@ -3,7 +3,7 @@ import { MigrationInterface, QueryRunner, Table } from 'typeorm';
 export class CreateProfessional1617751150609 implements MigrationInterface {
   public async up(queryRunner: QueryRunner): Promise<void> {
     await queryRunner.query('CREATE EXTENSION IF NOT EXISTS "uuid-ossp"');
-    queryRunner.createTable(
+    await queryRunner.createTable(
       new Table({
         name: 'professional',
         columns: [
@@ -65,6 +65,6 @@ export class CreateProfessional1617751150609 implements MigrationInterface {
   }
 
   public async down(queryRunner: QueryRunner): Promise<void> {
-    queryRunner.dropTable('professional');
+    await queryRunner.dropTable('professional');
   }
 }
