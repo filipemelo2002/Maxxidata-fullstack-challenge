@@ -5,6 +5,10 @@ export const Container = styled.div`
   width: 100%;
   display: flex;
   flex-direction: row;
+
+  @media (max-width: 790px) {
+    flex-direction: column;
+  }
 `;
 interface SignInProps {
   signup?: boolean;
@@ -79,5 +83,10 @@ export const SignIn = styled.div<SignInProps>`
     button:hover {
       filter: brightness(0.9);
     }
+  }
+
+  @media (max-width: 790px) {
+    min-height: 100vh;
+    padding: 1.6rem;
   }
 `;
