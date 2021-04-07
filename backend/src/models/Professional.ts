@@ -15,7 +15,7 @@ class Professional {
   id: string;
 
   @Column()
-  name: string;
+  nome: string;
 
   @Column()
   telefone: string;
@@ -23,9 +23,12 @@ class Professional {
   @Column()
   email: string;
 
+  @Column()
+  tipoDeProfissional: string;
+
   @ManyToOne(() => ProfessionalType)
   @JoinColumn({ name: 'tipoDeProfissional' })
-  tipoDeProfissional: ProfessionalType;
+  professionalType: ProfessionalType;
 
   @Column()
   situacao: boolean;

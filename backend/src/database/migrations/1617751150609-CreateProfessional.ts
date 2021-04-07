@@ -22,7 +22,7 @@ export class CreateProfessional1617751150609 implements MigrationInterface {
           {
             name: 'telefone',
             type: 'varchar',
-            isNullable: false,
+            isNullable: true,
           },
           {
             name: 'email',
