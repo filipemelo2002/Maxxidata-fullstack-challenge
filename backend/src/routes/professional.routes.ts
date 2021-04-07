@@ -3,6 +3,7 @@ import { getRepository } from 'typeorm';
 import AppError from '../errors/AppError';
 import Professional from '../models/Professional';
 import CreateProfessional from '../services/Professional/create';
+import RemoveProfessional from '../services/Professional/remove';
 import UpdateProfessional from '../services/Professional/update';
 const professionalRouter = Router();
 
@@ -56,6 +57,13 @@ professionalRouter.put('/:id', async (request, response) => {
     tipoDeProfissional,
     situacao,
   });
+  return response.status(201).send();
+});
+
+professionalRouter.delete('/:id', async (request, response) => {
+  const { id } = request.params;
+  const removeProfessionalService = new RemoveProfessional();
+  await removeProfessionalService.execute({ id });
   return response.status(201).send();
 });
 

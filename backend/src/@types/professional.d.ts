@@ -9,3 +9,6 @@ interface ProfessionalCreateBody {
 interface ProfessionalUpdateBody extends ProfessionalCreateBody {
   id: string;
 }
+interface ProfessionalRemoveBody {
+  id: string;
+}
