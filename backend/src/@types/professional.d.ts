@@ -5,3 +5,7 @@ interface ProfessionalCreateBody {
   tipoDeProfissional: string;
   situacao: boolean;
 }
+
+interface ProfessionalUpdateBody extends ProfessionalCreateBody {
+  id: string;
+}
