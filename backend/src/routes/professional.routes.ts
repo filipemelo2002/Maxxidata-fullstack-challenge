@@ -5,8 +5,10 @@ import Professional from '../models/Professional';
 import CreateProfessional from '../services/Professional/create';
 import RemoveProfessional from '../services/Professional/remove';
 import UpdateProfessional from '../services/Professional/update';
+import ensureAuthenticated from '../middlewares/ensureAuthenticated';
 const professionalRouter = Router();
 
+professionalRouter.use(ensureAuthenticated);
 professionalRouter.post('/', async (request, response) => {
   const {
     nome,

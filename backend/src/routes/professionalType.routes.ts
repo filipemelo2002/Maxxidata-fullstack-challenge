@@ -6,9 +6,11 @@ import ProfessionalType from '../models/ProfesionalType';
 import ProfessionalServiceCreate from '../services/ProfessionalType/create';
 import ProfessionalServiceRemove from '../services/ProfessionalType/remove';
 import ProfessionalServiceUpdate from '../services/ProfessionalType/update';
+import ensureAuthenticated from '../middlewares/ensureAuthenticated';
 
 const professionalTypeRouter = Router();
 
+professionalTypeRouter.use(ensureAuthenticated);
 professionalTypeRouter.post('/', async (request, response) => {
   const { descricao, situacao } = request.body;
   const createProfessionalType = new ProfessionalServiceCreate();
