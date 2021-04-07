@@ -1,11 +1,11 @@
 import { MigrationInterface, QueryRunner, Table } from 'typeorm';
 
-export class CreateProfessional1617751150609 implements MigrationInterface {
+export class CreateAdmin1617758878195 implements MigrationInterface {
   public async up(queryRunner: QueryRunner): Promise<void> {
     await queryRunner.query('CREATE EXTENSION IF NOT EXISTS "uuid-ossp"');
     await queryRunner.createTable(
       new Table({
-        name: 'professional',
+        name: 'admin',
         columns: [
           {
             name: 'id',
@@ -17,28 +17,15 @@ export class CreateProfessional1617751150609 implements MigrationInterface {
           {
             name: 'nome',
             type: 'varchar',
-            isNullable: false,
-          },
-          {
-            name: 'telefone',
-            type: 'varchar',
-            isNullable: true,
           },
           {
             name: 'email',
             type: 'varchar',
             isUnique: true,
-            isNullable: true,
           },
           {
-            name: 'tipoDeProfissional',
-            type: 'uuid',
-            isNullable: true,
-          },
-          {
-            name: 'situacao',
-            type: 'boolean',
-            isNullable: false,
+            name: 'senha',
+            type: 'varchar',
           },
           {
             name: 'createdAt',
@@ -51,20 +38,11 @@ export class CreateProfessional1617751150609 implements MigrationInterface {
             default: 'now()',
           },
         ],
-        foreignKeys: [
-          {
-            columnNames: ['tipoDeProfissional'],
-            referencedColumnNames: ['id'],
-            referencedTableName: 'professionalType',
-            onDelete: 'SET NULL',
-            onUpdate: 'CASCADE',
-          },
-        ],
       }),
     );
   }
 
   public async down(queryRunner: QueryRunner): Promise<void> {
-    await queryRunner.dropTable('professional');
+    await queryRunner.dropTable('admin');
   }
 }
