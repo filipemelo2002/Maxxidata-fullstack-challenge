@@ -27,6 +27,16 @@ export const Container = styled.div`
       -moz-box-shadow: 0px 0px 5px -1px rgba(0, 0, 0, 0.51);
       box-shadow: 0px 0px 5px -1px rgba(0, 0, 0, 0.51);
     }
+    section {
+      #status {
+        width: auto;
+        margin-top: 1rem;
+      }
+      label {
+        margin-left: 0.5rem;
+      }
+    }
+
     button {
       margin-top: 1.8rem;
       padding: 10px;
