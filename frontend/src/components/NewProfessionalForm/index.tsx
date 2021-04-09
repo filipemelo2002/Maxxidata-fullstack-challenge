@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 import { Container } from '../../styles/newProfessionalForm';
-
+import SelectProfessionalType from '../../components/SelectProfessionalType';
 const NewProfessionalForm: React.FC = () => {
   const [nome, setNome] = useState('');
   const [telefone, setTelefone] = useState('');
@@ -38,7 +38,12 @@ const NewProfessionalForm: React.FC = () => {
           value={email}
           onChange={e => setEmail(e.target.value)}
         />
-
+        <SelectProfessionalType
+          value={undefined}
+          onChange={e => {
+            console.log(e);
+          }}
+        />
         <section>
           <input
             type="checkbox"

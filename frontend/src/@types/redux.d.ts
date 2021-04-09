@@ -8,7 +8,13 @@ interface AdminInterface {
   error: boolean;
 }
 
+interface ProfessionalTypeInterface {
+  data: IProfessionTypeResponse[];
+  loading: boolean;
+  error: boolean;
+}
 interface State {
   session: SessionInterface;
   admin: AdminInterface;
+  professionalType: ProfessionalTypeInterface;
 }

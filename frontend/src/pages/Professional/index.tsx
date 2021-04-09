@@ -6,7 +6,7 @@ import NewProfessionalForm from '../../components/NewProfessionalForm';
 const Professional: React.FC = () => {
   return (
     <Container>
-      <h1>Profissionais</h1>
+      <h1>Adicionar Profissional</h1>
       <NewProfessionalForm />
     </Container>
   );
