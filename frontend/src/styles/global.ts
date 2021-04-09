@@ -7,6 +7,7 @@ export default createGlobalStyle`
     box-sizing: border-box;
     overflow-x: hidden;
     overflow-y: hidden;
+    outline: none;
   }
   body {
     background: #fff;
