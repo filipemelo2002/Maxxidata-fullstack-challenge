@@ -1,7 +1,17 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  min-height: 100vh;
+  height: 100vh;
   width: 100%;
   overflow-y: hidden;
+  position: relative;
+`;
+
+export const Content = styled.div`
+  margin-left: 7rem;
+  display: flex;
+  flex: 1;
+  background: #f2f2fd;
+  width: 100%;
+  height: 100%;
 `;
