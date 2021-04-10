@@ -10,8 +10,8 @@ import Loader from 'react-loader-spinner';
 const NewProfessionalForm: React.FC = () => {
   const dispatch = useDispatch();
   const [nome, setNome] = useState('');
-  const [telefone, setTelefone] = useState('');
-  const [email, setEmail] = useState('');
+  const [telefone, setTelefone] = useState<string | undefined>(undefined);
+  const [email, setEmail] = useState<string | undefined>(undefined);
   const [situacao, setSituacao] = useState(true);
   const [professionalType, setProfessionalType] = useState<string | undefined>(
     undefined,
@@ -21,11 +21,8 @@ const NewProfessionalForm: React.FC = () => {
   const submitForm = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!loading) {
-      console.log(nome, situacao, professionalType);
-      if (!nome || !situacao || !professionalType) {
-        toast.warn(
-          'Atenção, os campos "Nome", "Status do profissional" e "Tipo do Profissional" são obrigatórios.',
-        );
+      if (!professionalType) {
+        toast.warn('Por favor, selecione o Tipo do Profissional.');
         return false;
       }
       dispatch(
@@ -73,7 +70,6 @@ const NewProfessionalForm: React.FC = () => {
         <SelectProfessionalType
           value={professionalType}
           onChange={e => {
-            console.log('fsdfsd');
             setProfessionalType(e.target.value);
           }}
         />

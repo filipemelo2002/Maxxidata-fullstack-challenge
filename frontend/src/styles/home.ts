@@ -8,11 +8,9 @@ export const Container = styled.div`
 `;
 
 export const Content = styled.div`
-  margin-left: 8rem;
-  display: flex;
-  flex: 1;
+  margin-left: 7rem;
   background: #f2f2fd;
   width: 100%;
-  height: 100%;
   overflow-y: auto;
+  height: 100vh;
 `;
