@@ -1,6 +1,6 @@
 interface IProfessionalResponse {
   nome: string;
-  typoDeProfissional: string;
+  tipoDeProfissional: string;
   situacao: boolean;
   id: string;
   createdAt: string;

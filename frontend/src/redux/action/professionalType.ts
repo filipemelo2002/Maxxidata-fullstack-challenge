@@ -27,7 +27,7 @@ export const create = (data: IProfessionalTypeCreateBody) => {
       dispatch({ type: `${TEMPLATE_NAME}_PENDING` });
       const response = await Api.create(data);
       dispatch({
-        type: `${TEMPLATE_NAME}_SUCCESS`,
+        type: `${TEMPLATE_NAME}_CREATE_SUCCESS`,
         payload: response,
       });
       showSuccess('Tipo de Profissional criado com sucesso');
