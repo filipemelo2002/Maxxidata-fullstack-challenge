@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  width: 8rem;
+  width: 7rem;
   height: 100vh;
   padding-top: 2rem;
   padding-bottom: 2rem;
@@ -12,11 +12,8 @@ export const Container = styled.div`
   position: absolute;
   left: 0;
 
-  a {
-    padding: 0.3rem;
-  }
-
   img {
+    margin: 0.3rem;
     width: 4rem;
     height: 4rem;
   }
@@ -34,13 +31,12 @@ export const Container = styled.div`
       justify-content: center;
       align-items: center;
       width: 100%;
-      margin-top: 2rem;
     }
     li a {
-      width: 5rem;
-      height: 5rem;
+      width: 4rem;
+      height: 4rem;
       background: #1a1aa3;
-      border-radius: 2rem;
+      border-radius: 1rem;
       display: flex;
       align-items: center;
       justify-content: center;
