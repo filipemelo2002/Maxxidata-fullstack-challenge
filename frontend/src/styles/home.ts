@@ -14,4 +14,5 @@ export const Content = styled.div`
   background: #f2f2fd;
   width: 100%;
   height: 100%;
+  overflow-y: auto;
 `;

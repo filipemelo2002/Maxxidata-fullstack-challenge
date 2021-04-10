@@ -1,16 +1,48 @@
-import React, { useState } from 'react';
+import React, { FormEvent, useState } from 'react';
 
+import { toast } from 'react-toastify';
 import { Container } from '../../styles/newProfessionalForm';
 import SelectProfessionalType from '../../components/SelectProfessionalType';
+import { useDispatch, useSelector } from 'react-redux';
+import * as Creators from '../../redux/action/professional';
+import Loader from 'react-loader-spinner';
+
 const NewProfessionalForm: React.FC = () => {
+  const dispatch = useDispatch();
   const [nome, setNome] = useState('');
   const [telefone, setTelefone] = useState('');
   const [email, setEmail] = useState('');
   const [situacao, setSituacao] = useState(true);
+  const [professionalType, setProfessionalType] = useState<string | undefined>(
+    undefined,
+  );
+  const { loading } = useSelector((state: State) => state.professional);
 
+  const submitForm = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (!loading) {
+      console.log(nome, situacao, professionalType);
+      if (!nome || !situacao || !professionalType) {
+        toast.warn(
+          'Atenção, os campos "Nome", "Status do profissional" e "Tipo do Profissional" são obrigatórios.',
+        );
+        return false;
+      }
+      dispatch(
+        Creators.create({
+          nome,
+          situacao,
+          tipoDeProfissional: professionalType,
+          email,
+          telefone,
+        }),
+      );
+    }
+    return true;
+  };
   return (
     <Container>
-      <form>
+      <form onSubmit={submitForm}>
         <label htmlFor="name">Nome</label>
         <input
           type="text"
@@ -39,9 +71,10 @@ const NewProfessionalForm: React.FC = () => {
           onChange={e => setEmail(e.target.value)}
         />
         <SelectProfessionalType
-          value={undefined}
+          value={professionalType}
           onChange={e => {
-            console.log(e);
+            console.log('fsdfsd');
+            setProfessionalType(e.target.value);
           }}
         />
         <section>
@@ -56,7 +89,11 @@ const NewProfessionalForm: React.FC = () => {
             Deseja marcar o profissional como ativo?
           </label>
         </section>
-        <button>Cadastrar</button>
+        {loading ? (
+          <Loader type="ThreeDots" color="#0c0c4b" height={30} width={30} />
+        ) : (
+          <button>Cadastrar</button>
+        )}
       </form>
     </Container>
   );

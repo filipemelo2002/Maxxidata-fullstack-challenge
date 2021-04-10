@@ -4,11 +4,11 @@ import Loader from 'react-loader-spinner';
 import { Select } from '../../styles/select';
 import * as Creators from '../../redux/action/professionalType';
 interface Props {
-  value?: number;
+  value?: string;
   onChange?: (event: React.ChangeEvent<HTMLSelectElement>) => void;
 }
 
-const SelectProfessionalType: React.FC<Props> = () => {
+const SelectProfessionalType: React.FC<Props> = ({ value, onChange }) => {
   const dispatch = useDispatch();
   const professionalType = useSelector(
     (state: State) => state.professionalType,
@@ -19,11 +19,11 @@ const SelectProfessionalType: React.FC<Props> = () => {
   }, []);
 
   if (professionalType.loading) {
-    return <Loader type="ThreeDots" color="#fff" height={30} width={30} />;
+    return <Loader type="ThreeDots" color="#0c0c4b" height={30} width={30} />;
   }
 
   return (
-    <Select>
+    <Select onChange={onChange} value={value} required>
       <option value={undefined}>Tipo de Profissional</option>
       {professionalType.data.map(type => (
         <option key={type.id} value={type.id}>

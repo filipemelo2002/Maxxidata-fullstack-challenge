@@ -1,8 +1,8 @@
 import { Dispatch } from 'redux';
-import * as Api from '../../api/professionalType';
+import * as Api from '../../api/professional';
 import { showSuccess } from '../../services/showToast';
 
-const TEMPLATE_NAME = 'PROFESSIONAL_TYPE';
+const TEMPLATE_NAME = 'PROFESSIONAL';
 
 export const list = () => {
   return async (dispatch: Dispatch): Promise<void> => {
@@ -21,13 +21,13 @@ export const list = () => {
   };
 };
 
-export const create = (data: IProfessionalTypeCreateBody) => {
+export const create = (data: IProfessionalCreate) => {
   return async (dispatch: Dispatch): Promise<void> => {
     try {
       dispatch({ type: `${TEMPLATE_NAME}_PENDING` });
       const response = await Api.create(data);
       dispatch({
-        type: `${TEMPLATE_NAME}_SUCCESS`,
+        type: `${TEMPLATE_NAME}_CREATE_SUCCESS`,
         payload: response,
       });
       showSuccess('Tipo de Profissional criado com sucesso');
